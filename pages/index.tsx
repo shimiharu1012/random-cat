@@ -11,23 +11,6 @@ const IndexPage: NextPage<Props>=({initialImageUrl})=>{
     const [ImageUrl,setImageUrl]=useState(initialImageUrl);
     const [loading,setLoading]=useState(false);
 
-    // useEffect(()=>{
-    //     fetchImage().then((newImage)=>{
-    //         setImageUrl(newImage.url);
-    //         setLoading(false);
-    //     });
-    // },[]);
-
-    // useEffect(()=>{
-    //     console.log(loading)
-    // },[loading])
-    //　ボタンをクリックしたときに画像を読み込む処理
-    // const handleClick=async()=>{
-    //     setLoading(true);
-    //     const newImage=await fetchImage();
-    //     setImageUrl(newImage.url)
-    //     setLoading(false);
-    // }
     
     const handleClick=()=>{
         setLoading(true);

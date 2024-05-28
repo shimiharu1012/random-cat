@@ -1,7 +1,7 @@
 body{
     background-image: url(../public/catimage.png);
     background-size: 10%;
-    background-color: wheat;
+    background-color: rgb(245, 222, 179);
     display: flex;
     justify-content: center;
 }
