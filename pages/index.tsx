@@ -38,9 +38,10 @@ const IndexPage: NextPage<Props>=({initialImageUrl})=>{
     }
 
     return(
-        <div className={styles.page}>
+        <div className={styles.container}>
             <button onClick={handleClick} className={styles.toNext}>他のニャンコも見る</button>
-            <div>{loading ? <div className={styles.loader}></div>: <img src={ImageUrl}/>}</div>
+            {console.log(ImageUrl)}
+            <div className={styles.imageContainer}>{loading ? <div className={styles.loader}></div>: <img className={styles.image} src={ImageUrl}/>}</div>
         </div>
     )
 };
@@ -63,7 +64,8 @@ type Imgae={
 const fetchImage=async():Promise<Imgae>=>{
     const res=await fetch("https://api.thecatapi.com/v1/images/search");
     const images =await res.json();
-    console.log(images);
+    // console.log(images);
+    // console.log(images[0]['url'])
     return images[0];
 }
 

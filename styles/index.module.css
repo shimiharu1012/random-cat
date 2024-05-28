@@ -2,23 +2,39 @@
     background-color: red;
 } */
 
-.page{
-    background-color: aqua;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 75%; */
+    gap: 20px;
 }
 
 .toNext{
+    cursor: pointer;
     background-color:wheat;
     border-radius: 5px;
     width: 200px;
     height: 50px;
     font-size: large;
-    
+    font-weight: bold;
 }
 
-/* HTML: <div class="loader"></div> */
-/* HTML: <div class="loader"></div> */
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */ 
+    width: 500px;
+    height: 300px;
+    background-color:wheat;
+    border: solid;
+    border-color: rgb(174, 173, 173);
+    border-width: 10px;
+    border-radius: 10px;
+}
+
 .loader {
-    
     width: 60px;
     aspect-ratio: 2;
     --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
@@ -27,6 +43,7 @@
       var(--_g) 50%  50%,
       var(--_g) 100% 50%;
     background-size: calc(100%/3) 50%;
+    background-color: wheat;
     animation: l3 1s infinite linear;
   }
   @keyframes l3 {
@@ -35,3 +52,9 @@
       60%{background-position:0%  50%, 50% 100%,100%   0%}
       80%{background-position:0%  50%, 50%  50%,100% 100%}
   }
+
+
+
+.image{
+    width: 500px;
+} 
