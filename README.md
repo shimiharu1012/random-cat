@@ -2,5 +2,5 @@
 
 TypeScript，Next.jsを使ったチュートリアルアプリケーション．The Cat APIからランダムで猫画像を生成する．
 
-⬇️⬇️参考⬇️⬇️
+⬇️⬇️参考⬇️⬇️<br>
 https://typescriptbook.jp/
