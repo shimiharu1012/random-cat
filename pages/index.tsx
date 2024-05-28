@@ -1,5 +1,6 @@
 import {GetServerSideProps,NextPage} from "next";
 import { useEffect, useState } from "react";
+import styles from "../styles/index.module.css"
 
 // GetServerSidePropsから渡される引数の型
 type Props={
@@ -37,9 +38,9 @@ const IndexPage: NextPage<Props>=({initialImageUrl})=>{
     }
 
     return(
-        <div className="">
-            <button onClick={handleClick}>他のニャンコも見る</button>
-            <div>{loading ? <p>LOADING</p> : <img src={ImageUrl}/>}</div>
+        <div className={styles.page}>
+            <button onClick={handleClick} className={styles.toNext}>他のニャンコも見る</button>
+            <div>{loading ? <div className={styles.loader}></div>: <img src={ImageUrl}/>}</div>
         </div>
     )
 };
