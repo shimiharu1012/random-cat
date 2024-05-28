@@ -1,17 +1,21 @@
-import {NextPage} from "next";
+import {GetServerSideProps,NextPage} from "next";
 import { useEffect, useState } from "react";
 
+// GetServerSidePropsから渡される引数の型
+type Props={
+    initialImageUrl: string;
+}
 
-const IndexPage: NextPage=()=>{
-    const [ImageUrl,setImageUrl]=useState("");
-    const [loading,setLoading]=useState(true);
+const IndexPage: NextPage<Props>=({initialImageUrl})=>{
+    const [ImageUrl,setImageUrl]=useState(initialImageUrl);
+    const [loading,setLoading]=useState(false);
 
-    useEffect(()=>{
-        fetchImage().then((newImage)=>{
-            setImageUrl(newImage.url);
-            setLoading(false);
-        });
-    },[]);
+    // useEffect(()=>{
+    //     fetchImage().then((newImage)=>{
+    //         setImageUrl(newImage.url);
+    //         setLoading(false);
+    //     });
+    // },[]);
 
     // useEffect(()=>{
     //     console.log(loading)
@@ -41,6 +45,15 @@ const IndexPage: NextPage=()=>{
 };
 
 export default IndexPage;
+
+export const getServerSideProps: GetServerSideProps<Props>=async ()=>{
+    const image =await fetchImage();
+    return {
+        props:{
+            initialImageUrl:image.url
+        },
+    };
+};
 
 type Imgae={
     url:string;
