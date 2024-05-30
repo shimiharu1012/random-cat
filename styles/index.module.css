@@ -62,5 +62,10 @@
 }
 
 .hidden{
+    /* background-color: red; */
     display: none;
+}
+
+.red{
+    color:red;
 }
