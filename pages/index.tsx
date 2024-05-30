@@ -47,8 +47,6 @@ type Imgae={
 const fetchImage=async():Promise<Imgae>=>{
     const res=await fetch("https://api.thecatapi.com/v1/images/search");
     const images =await res.json();
-    // console.log(images);
-    // console.log(images[0]['url'])
     return images[0];
 }
 
