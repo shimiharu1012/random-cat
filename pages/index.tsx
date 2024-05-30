@@ -16,15 +16,26 @@ const IndexPage: NextPage<Props>=({initialImageUrl})=>{
         setLoading(true);
         fetchImage().then((newImage)=>{
             setImageUrl(newImage.url)
-            setLoading(false)
         })
     }
+
+    const handleLoad=()=>{
+        setLoading(false)
+ 
+    }
+
+
+    const isVisibleLoader=loading ?  "" : styles.hidden 
+    const isVisibleImage=loading ? styles.hidden : ""
+
 
     return(
         <div className={styles.container}>
             <button onClick={handleClick} className={styles.toNext}>他のニャンコも見る</button>
-            {console.log(ImageUrl)}
-            <div className={styles.imageContainer}>{loading ? <div className={styles.loader}></div>: <img className={styles.image} src={ImageUrl}/>}</div>
+            <div className={styles.imageContainer}>
+                <div className={`${styles.loader} ${isVisibleLoader}`}></div>
+                <img onLoad={handleLoad} className={`${styles.image} ${isVisibleImage}`} src={ImageUrl}></img>
+            </div>
         </div>
     )
 };
@@ -47,6 +58,7 @@ type Imgae={
 const fetchImage=async():Promise<Imgae>=>{
     const res=await fetch("https://api.thecatapi.com/v1/images/search");
     const images =await res.json();
+    console.log(images)
     return images[0];
 }
 
